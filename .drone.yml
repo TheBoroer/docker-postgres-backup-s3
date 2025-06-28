@@ -1,0 +1,110 @@
+kind: pipeline
+type: docker
+name: postgres-backup-s3-14
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: boro/postgres-backup-s3
+      tags:
+        - "14"
+      build_args:
+        - POSTGRES_VERSION=14
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - push
+        - tag
+
+---
+kind: pipeline
+type: docker
+name: postgres-backup-s3-15
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: boro/postgres-backup-s3
+      tags:
+        - "15"
+      build_args:
+        - POSTGRES_VERSION=15
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - push
+        - tag
+
+---
+kind: pipeline
+type: docker
+name: postgres-backup-s3-16
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: boro/postgres-backup-s3
+      tags:
+        - "16"
+      build_args:
+        - POSTGRES_VERSION=16
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - push
+        - tag
+
+---
+kind: pipeline
+type: docker
+name: postgres-backup-s3-17
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: boro/postgres-backup-s3
+      tags:
+        - "17"
+      build_args:
+        - POSTGRES_VERSION=17
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - push
+        - tag
