@@ -10,6 +10,8 @@ This image supports multiple PostgreSQL versions through automated builds via Dr
 
 The following PostgreSQL versions are automatically built and tagged:
 
+- PostgreSQL 12 (`boro/postgres-backup-s3:12`)
+- PostgreSQL 13 (`boro/postgres-backup-s3:13`)
 - PostgreSQL 14 (`boro/postgres-backup-s3:14`)
 - PostgreSQL 15 (`boro/postgres-backup-s3:15`)
 - PostgreSQL 16 (`boro/postgres-backup-s3:16`)
@@ -28,7 +30,7 @@ $ docker build --build-arg POSTGRES_VERSION=15 -t boro/postgres-backup-s3:15 .
 
 The repository includes a `.drone.yml` configuration that automatically builds all supported PostgreSQL versions on push/tag events. Each version gets tagged with:
 
-- The version number (e.g., `14`, `15`, `16`, `17`)
+- The version number (e.g., `12`, `13`, `14`, `15`, `16`, `17`)
 
 ## Usage
 
