@@ -1,7 +1,8 @@
-FROM alpine:3.21
-
-# PostgreSQL version build argument - error if not specified
+# Build Args
+ARG ALPINE_VERSION=3.21
 ARG POSTGRES_VERSION
+
+FROM alpine:${ALPINE_VERSION}
 
 RUN apk update
 
