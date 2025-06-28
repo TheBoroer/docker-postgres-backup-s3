@@ -17,9 +17,9 @@ steps:
       build_args:
         - POSTGRES_VERSION=14
       username:
-        from_secret: docker_username
+        from_secret: dockerhub_username
       password:
-        from_secret: docker_password
+        from_secret: dockerhub_password
     when:
       event:
         - push
@@ -45,9 +45,9 @@ steps:
       build_args:
         - POSTGRES_VERSION=15
       username:
-        from_secret: docker_username
+        from_secret: dockerhub_username
       password:
-        from_secret: docker_password
+        from_secret: dockerhub_password
     when:
       event:
         - push
@@ -73,9 +73,9 @@ steps:
       build_args:
         - POSTGRES_VERSION=16
       username:
-        from_secret: docker_username
+        from_secret: dockerhub_username
       password:
-        from_secret: docker_password
+        from_secret: dockerhub_password
     when:
       event:
         - push
@@ -101,9 +101,9 @@ steps:
       build_args:
         - POSTGRES_VERSION=17
       username:
-        from_secret: docker_username
+        from_secret: dockerhub_username
       password:
-        from_secret: docker_password
+        from_secret: dockerhub_password
     when:
       event:
         - push
