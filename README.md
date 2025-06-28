@@ -12,7 +12,7 @@ The following PostgreSQL versions are automatically built and tagged:
 
 - PostgreSQL 14 (`boro/postgres-backup-s3:14`)
 - PostgreSQL 15 (`boro/postgres-backup-s3:15`)
-- PostgreSQL 16 (`boro/postgres-backup-s3:16`, `boro/postgres-backup-s3:latest`)
+- PostgreSQL 16 (`boro/postgres-backup-s3:16`)
 - PostgreSQL 17 (`boro/postgres-backup-s3:17`)
 
 ### Manual Building
@@ -22,9 +22,6 @@ If you need to build a specific version manually, you can use the `POSTGRES_VERS
 ```sh
 # Build for PostgreSQL 15
 $ docker build --build-arg POSTGRES_VERSION=15 -t boro/postgres-backup-s3:15 .
-
-# Build for PostgreSQL 16 (default)
-$ docker build -t boro/postgres-backup-s3:16 .
 ```
 
 ### Drone CI Configuration
@@ -32,15 +29,22 @@ $ docker build -t boro/postgres-backup-s3:16 .
 The repository includes a `.drone.yml` configuration that automatically builds all supported PostgreSQL versions on push/tag events. Each version gets tagged with:
 
 - The version number (e.g., `14`, `15`, `16`, `17`)
-- The version number with build number (e.g., `14-123`, `15-123`)
-- PostgreSQL 16 also gets tagged as `latest`
 
 ## Usage
 
 Docker:
 
 ```sh
-$ docker run -e S3_ACCESS_KEY_ID=key -e S3_SECRET_ACCESS_KEY=secret -e S3_BUCKET=my-bucket -e S3_PREFIX=backup -e POSTGRES_DATABASE=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_HOST=localhost boro/postgres-backup-s3:15
+$ docker run \
+  -e S3_ACCESS_KEY_ID=key \
+  -e S3_SECRET_ACCESS_KEY=secret \
+  -e S3_BUCKET=my-bucket \
+  -e S3_PREFIX=backup \
+  -e POSTGRES_DATABASE=dbname \
+  -e POSTGRES_USER=user \
+  -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_HOST=localhost \
+  boro/postgres-backup-s3:15
 ```
 
 Docker Compose:
